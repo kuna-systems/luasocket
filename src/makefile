@@ -158,7 +158,7 @@ SOCKET_macosx=usocket.o
 # for Linux
 SO_linux=so
 O_linux=o
-CC_linux=gcc
+CC_linux?=gcc
 DEF_linux=-DLUASOCKET_$(DEBUG) -DLUA_$(COMPAT)_MODULE \
 	-DLUASOCKET_API='__attribute__((visibility("default")))' \
 	-DUNIX_API='__attribute__((visibility("default")))' \
@@ -166,7 +166,7 @@ DEF_linux=-DLUASOCKET_$(DEBUG) -DLUA_$(COMPAT)_MODULE \
 CFLAGS_linux= -I$(LUAINC) $(DEF) -pedantic -Wall -Wshadow -Wextra \
 	-Wimplicit -O2 -ggdb3 -fpic -fvisibility=hidden
 LDFLAGS_linux=-O -shared -fpic -o 
-LD_linux=gcc
+LD_linux?=gcc
 SOCKET_linux=usocket.o
 
 #------
